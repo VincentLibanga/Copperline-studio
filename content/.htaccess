@@ -1,0 +1,4 @@
+# Always check for the latest content after the editor publishes.
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-cache"
+</IfModule>

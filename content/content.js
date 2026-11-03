@@ -1,0 +1,568 @@
+/* Website content. Edited through the admin panel (yoursite/#admin). */
+window.SITE_CONTENT = {
+  "site": {
+    "name": "Copperline",
+    "tagline": "Photo, film and design studio in Lusaka",
+    "description": "Photo, film and design studio in Lusaka, Zambia. Weddings, Chilanga Mulilo, corporate events, music videos, adverts, graphic design and digital marketing.",
+    "email": "hello@copperline.studio",
+    "phone": "",
+    "whatsapp": "",
+    "location": "Lusaka, Zambia",
+    "hours": "Monday to Saturday, 08:00–18:00",
+    "instagram": "",
+    "facebook": "",
+    "tiktok": "",
+    "youtube": "",
+    "formEndpoint": ""
+  },
+  "hero": {
+    "kicker": "Photo · Film · Design — Lusaka, Zambia",
+    "line1": "We photograph, film",
+    "line2": "and design for",
+    "primaryButton": "Book a date",
+    "secondaryButton": "See our work",
+    "slides": [
+      {
+        "word": "weddings",
+        "image": "images/reception-lights.jpg",
+        "caption": "Reception under the lights · Lusaka",
+        "focusX": 52,
+        "focusY": 34
+      },
+      {
+        "word": "chilanga mulilo",
+        "image": "images/mulilo-fire.jpg",
+        "caption": "Showing the fire · Kasama",
+        "focusX": 50,
+        "focusY": 66
+      },
+      {
+        "word": "music videos",
+        "image": "images/concert-stage.jpg",
+        "caption": "Live at the album launch · Lusaka",
+        "focusX": 50,
+        "focusY": 30
+      },
+      {
+        "word": "corporate events",
+        "image": "images/event-hall.jpg",
+        "caption": "Annual awards night · Lusaka",
+        "focusX": 57,
+        "focusY": 24
+      },
+      {
+        "word": "adverts",
+        "image": "images/product-advert.jpg",
+        "caption": "Skincare launch advert · Studio",
+        "focusX": 50,
+        "focusY": 42
+      }
+    ]
+  },
+  "statement": {
+    "label": "The studio",
+    "text": "Photographers, filmmakers, designers and marketers under one roof. We cover your day, make your film, design your brand and get it seen.",
+    "highlights": "cover your day, make your film, design your brand",
+    "facts": [
+      {
+        "label": "Based in",
+        "value": "Lusaka, Zambia"
+      },
+      {
+        "label": "We travel to",
+        "value": "Every province, and across the region"
+      },
+      {
+        "label": "Delivered as",
+        "value": "Online galleries, films in every format, print-ready files"
+      }
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "intro": "Ten services, one team. Book one, or bring us the whole project.",
+    "items": [
+      {
+        "title": "Chilanga Mulilo",
+        "group": "Celebrations",
+        "size": "wide",
+        "image": "images/chilanga-spread.jpg",
+        "line": "The dishes, the songs and two families meeting over food.",
+        "includes": [
+          "Photography and film of the full ceremony",
+          "Coverage of the food presentation and gifting",
+          "Edited gallery and a 3–5 minute highlight film"
+        ]
+      },
+      {
+        "title": "Weddings",
+        "group": "Celebrations",
+        "size": "medium",
+        "image": "images/reception-lights.jpg",
+        "line": "From getting ready to the last dance, in photos and film.",
+        "includes": [
+          "Two photographers and a videographer",
+          "Church, reception and couple portraits",
+          "Highlight film, full ceremony edit and online gallery"
+        ]
+      },
+      {
+        "title": "Corporate events",
+        "group": "Celebrations",
+        "size": "third",
+        "image": "images/event-hall.jpg",
+        "line": "Launches, conferences, award nights and AGMs.",
+        "includes": [
+          "Speaker, stage and guest coverage",
+          "Same-day edited photos for your social media",
+          "Event recap video"
+        ]
+      },
+      {
+        "title": "Music videos",
+        "group": "Film & motion",
+        "size": "third",
+        "image": "images/concert-stage.jpg",
+        "line": "Concept, shoot, edit and colour grade for artists and labels.",
+        "includes": [
+          "Treatment and storyboard",
+          "Lighting, camera and drone",
+          "Edit, colour grade and vertical cut-downs"
+        ]
+      },
+      {
+        "title": "Adverts",
+        "group": "Film & motion",
+        "size": "third",
+        "image": "images/product-advert.jpg",
+        "line": "Commercials for TV, YouTube and social media.",
+        "includes": [
+          "Script and storyboard",
+          "Casting, location and product styling",
+          "30, 15 and 6 second versions"
+        ]
+      },
+      {
+        "title": "Promo videos",
+        "group": "Film & motion",
+        "size": "third",
+        "image": "images/zambezi-blue-hour.jpg",
+        "line": "For businesses, lodges, churches, schools and NGOs.",
+        "includes": [
+          "Interviews and supporting footage",
+          "Drone footage",
+          "Captions and subtitles"
+        ]
+      },
+      {
+        "title": "Video editing",
+        "group": "Film & motion",
+        "size": "third",
+        "image": "images/neon-trails.jpg",
+        "line": "Send us your footage. We cut, grade and mix it.",
+        "includes": [
+          "Editing, colour grading and sound mixing",
+          "Subtitles in English, Bemba or Nyanja",
+          "Exports for TV, YouTube, TikTok and Instagram"
+        ]
+      },
+      {
+        "title": "Content creation",
+        "group": "Brand & digital",
+        "size": "third",
+        "image": "images/great-east-road.jpg",
+        "line": "A steady supply of photos and videos made for your social channels.",
+        "includes": [
+          "Monthly photo and reel shoots",
+          "Product and food photography",
+          "Short-form video for TikTok, Reels and Shorts"
+        ]
+      },
+      {
+        "title": "Graphic design",
+        "group": "Brand & digital",
+        "size": "half",
+        "image": "",
+        "line": "Logos, brand identity, posters, flyers and event branding.",
+        "includes": [
+          "Logo and brand identity",
+          "Posters, flyers, banners and invitations",
+          "Branding for events and stages"
+        ]
+      },
+      {
+        "title": "Digital marketing",
+        "group": "Brand & digital",
+        "size": "half",
+        "image": "",
+        "line": "We plan, post and promote, then show you what worked.",
+        "includes": [
+          "Social media management",
+          "Paid ads on Facebook, Instagram and TikTok",
+          "Content calendar and a monthly report"
+        ]
+      }
+    ]
+  },
+  "work": {
+    "featuredTitle": "Selected work",
+    "featuredIntro": "One project from each thing we do, from a Chilanga Mulilo in Kitwe to a skincare advert.",
+    "allTitle": "All work",
+    "categories": [
+      "Chilanga Mulilo",
+      "Weddings",
+      "Events",
+      "Music videos",
+      "Adverts & promos"
+    ],
+    "items": [
+      {
+        "title": "Dishes for the groom",
+        "category": "Chilanga Mulilo",
+        "featured": true,
+        "type": "photo",
+        "duration": "",
+        "image": "images/chilanga-spread.jpg",
+        "place": "Kitwe",
+        "delivered": "220 photographs",
+        "video": "",
+        "text": "The bride's family presents the meal they have cooked. We photographed every dish before it was served, then the families around it."
+      },
+      {
+        "title": "Showing the fire",
+        "category": "Chilanga Mulilo",
+        "featured": false,
+        "type": "film",
+        "duration": "4:12",
+        "image": "images/mulilo-fire.jpg",
+        "place": "Kasama",
+        "delivered": "Highlight film, 4 min",
+        "video": "",
+        "text": "A highlight film of a Chilanga Mulilo, from the cooking fire in the morning to the songs in the evening."
+      },
+      {
+        "title": "Reception under the lights",
+        "category": "Weddings",
+        "featured": true,
+        "type": "photo",
+        "duration": "",
+        "image": "images/reception-lights.jpg",
+        "place": "Lusaka",
+        "delivered": "640 photographs, highlight film",
+        "video": "",
+        "text": "A garden reception under three thousand bulbs. We shot without flash to keep the warmth of the room."
+      },
+      {
+        "title": "The drive to the reception",
+        "category": "Weddings",
+        "featured": false,
+        "type": "film",
+        "duration": "5:30",
+        "image": "images/great-east-road.jpg",
+        "place": "Lusaka",
+        "delivered": "Highlight film, 5 min",
+        "video": "",
+        "text": "City lights through the car window between the church and the reception."
+      },
+      {
+        "title": "Annual awards night",
+        "category": "Events",
+        "featured": true,
+        "type": "photo",
+        "duration": "",
+        "image": "images/event-hall.jpg",
+        "place": "Lusaka",
+        "delivered": "Same-day selects, 380 photographs, recap video",
+        "video": "",
+        "text": "Four hundred guests, twelve awards, and edited photos on the client's social pages before dessert."
+      },
+      {
+        "title": "Live at the album launch",
+        "category": "Music videos",
+        "featured": true,
+        "type": "film",
+        "duration": "3:48",
+        "image": "images/concert-stage.jpg",
+        "place": "Lusaka",
+        "delivered": "Music video, 3 vertical cut-downs",
+        "video": "",
+        "text": "A live performance video cut from four cameras and a drone, released the week after the show."
+      },
+      {
+        "title": "Light painting set",
+        "category": "Music videos",
+        "featured": false,
+        "type": "film",
+        "duration": "3:12",
+        "image": "images/neon-trails.jpg",
+        "place": "Studio, Lusaka",
+        "delivered": "Music video, colour grade",
+        "video": "",
+        "text": "Long-exposure light painting built into a one-location music video."
+      },
+      {
+        "title": "Skincare launch advert",
+        "category": "Adverts & promos",
+        "featured": true,
+        "type": "film",
+        "duration": "0:30",
+        "image": "images/product-advert.jpg",
+        "place": "Studio, Lusaka",
+        "delivered": "30s, 15s and 6s spots, 24 product photos",
+        "video": "",
+        "text": "Product photography and a 30-second commercial for a new skincare line."
+      },
+      {
+        "title": "Lodge promo",
+        "category": "Adverts & promos",
+        "featured": false,
+        "type": "film",
+        "duration": "2:00",
+        "image": "images/zambezi-blue-hour.jpg",
+        "place": "Lower Zambezi",
+        "delivered": "Promo film, website photos",
+        "video": "",
+        "text": "A two-minute promo for a riverside lodge, filmed over three evenings."
+      },
+      {
+        "title": "Tourism campaign, drone",
+        "category": "Adverts & promos",
+        "featured": false,
+        "type": "film",
+        "duration": "1:00",
+        "image": "images/barotse-floodplain.jpg",
+        "place": "Western Province",
+        "delivered": "Drone footage, 60s advert",
+        "video": "",
+        "text": "Aerial footage of the Barotse floodplain for a tourism campaign."
+      }
+    ]
+  },
+  "editing": {
+    "show": true,
+    "label": "Video editing",
+    "title": "The footage, and the film",
+    "text": "Colour grading turns flat camera footage into a look. Drag across the frame to compare the ungraded file with the final grade.",
+    "before": "images/liuwa-storm-raw.jpg",
+    "after": "images/liuwa-storm.jpg",
+    "beforeLabel": "Ungraded",
+    "afterLabel": "Graded",
+    "chips": [
+      {
+        "label": "Contrast",
+        "value": "+28"
+      },
+      {
+        "label": "Highlights",
+        "value": "−55"
+      },
+      {
+        "label": "Shadows",
+        "value": "+30"
+      },
+      {
+        "label": "Temperature",
+        "value": "5400 → 5900 K"
+      },
+      {
+        "label": "Saturation",
+        "value": "+18"
+      },
+      {
+        "label": "Look",
+        "value": "Warm film, soft roll-off"
+      }
+    ]
+  },
+  "design": {
+    "show": true,
+    "title": "Graphic design",
+    "intro": "Posters, brand identities and social posts, designed in-house alongside the photos and films.",
+    "items": [
+      {
+        "title": "Event poster",
+        "note": "Print, social and LED screen versions",
+        "image": "images/design-poster.jpg"
+      },
+      {
+        "title": "Brand identity",
+        "note": "Logo, colours, type and stationery",
+        "image": "images/design-brand.jpg"
+      },
+      {
+        "title": "Social media post",
+        "note": "Feed, story and WhatsApp status sizes",
+        "image": "images/design-social.jpg"
+      }
+    ]
+  },
+  "digital": {
+    "show": true,
+    "label": "Content creation · Digital marketing",
+    "title": "We make the content, then we get it seen",
+    "text": "Most brands do not need one big video. They need good content every week. We plan the month, shoot it in one or two days, post it on schedule and run the ads.",
+    "steps": [
+      {
+        "title": "Plan",
+        "text": "A monthly content calendar built around your sales and events"
+      },
+      {
+        "title": "Shoot",
+        "text": "Photos, reels and short videos made in batches"
+      },
+      {
+        "title": "Post",
+        "text": "Captions, scheduling and replies to comments and messages"
+      },
+      {
+        "title": "Promote",
+        "text": "Paid ads on Facebook, Instagram and TikTok"
+      },
+      {
+        "title": "Report",
+        "text": "A monthly report on reach, clicks and enquiries"
+      }
+    ],
+    "calendarTitle": "This week",
+    "calendar": [
+      {
+        "day": "Mon",
+        "type": "Reel",
+        "text": "Behind the scenes in the kitchen"
+      },
+      {
+        "day": "Tue",
+        "type": "Story",
+        "text": "Poll: which new flavour?"
+      },
+      {
+        "day": "Wed",
+        "type": "Carousel",
+        "text": "Six photos of the new menu"
+      },
+      {
+        "day": "Fri",
+        "type": "Ad",
+        "text": "Weekend offer, Lusaka, 18–35"
+      },
+      {
+        "day": "Sat",
+        "type": "Reel",
+        "text": "Customer interviews at the shop"
+      }
+    ],
+    "calendarNote": "Approved by you on Friday, posted by us."
+  },
+  "process": {
+    "title": "How we work",
+    "intro": "The same five steps for a wedding, a music video or a campaign.",
+    "steps": [
+      {
+        "title": "Brief",
+        "text": "Tell us the date, the place and what you need. We reply within one working day with a quote."
+      },
+      {
+        "title": "Plan",
+        "text": "A 30% deposit holds the date. We build the shot list, storyboard or content calendar with you."
+      },
+      {
+        "title": "Shoot",
+        "text": "Our crew arrives early, works quietly and covers every moment on the plan."
+      },
+      {
+        "title": "Edit",
+        "text": "We edit, grade and design. You get one round of changes on every film and design."
+      },
+      {
+        "title": "Deliver",
+        "text": "Online gallery, films in every format you need, and print-ready design files."
+      }
+    ]
+  },
+  "faq": {
+    "label": "Questions",
+    "title": "Before you book",
+    "items": [
+      {
+        "q": "How far ahead should we book?",
+        "a": "For weddings and Chilanga Mulilo, three to six months ahead, especially from August to December. Music videos and adverts usually need two to four weeks of planning."
+      },
+      {
+        "q": "Do you cover both photos and video on the same day?",
+        "a": "Yes. Most of our wedding and ceremony clients book both, with a photographer and a videographer working as one team."
+      },
+      {
+        "q": "How long until we get our photos and films?",
+        "a": "Event photos arrive in two weeks, wedding highlight films in four to six weeks. Corporate clients can get edited selects on the same day."
+      },
+      {
+        "q": "Do you travel outside Lusaka?",
+        "a": "Yes, to every province and across the region. Transport and accommodation are quoted separately and agreed before you pay a deposit."
+      },
+      {
+        "q": "How can we pay?",
+        "a": "Bank transfer, card, Airtel Money or MTN MoMo. A 30% deposit holds your date and the balance is due before delivery."
+      }
+    ]
+  },
+  "contact": {
+    "label": "Book a date",
+    "title": "Tell us about your day or your project",
+    "text": "We reply within one working day with availability and a quote.",
+    "budgets": [
+      "Not sure yet",
+      "Under K10,000",
+      "K10,000 – K25,000",
+      "K25,000 – K50,000",
+      "Over K50,000"
+    ],
+    "showLight": true,
+    "places": [
+      {
+        "name": "Lusaka",
+        "lat": -15.3875,
+        "lon": 28.3228
+      },
+      {
+        "name": "Ndola",
+        "lat": -12.9587,
+        "lon": 28.6366
+      },
+      {
+        "name": "Kitwe",
+        "lat": -12.8024,
+        "lon": 28.2132
+      },
+      {
+        "name": "Livingstone",
+        "lat": -17.8419,
+        "lon": 25.8544
+      },
+      {
+        "name": "Kabwe",
+        "lat": -14.4469,
+        "lon": 28.4464
+      },
+      {
+        "name": "Chipata",
+        "lat": -13.6333,
+        "lon": 32.65
+      },
+      {
+        "name": "Kasama",
+        "lat": -10.2129,
+        "lon": 31.1808
+      },
+      {
+        "name": "Solwezi",
+        "lat": -12.1688,
+        "lon": 26.3894
+      }
+    ]
+  },
+  "footer": {
+    "ctaTitle": "Have a date in mind?",
+    "ctaButton": "Check availability",
+    "copyright": "All photographs, films and designs are copyright."
+  }
+};

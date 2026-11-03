@@ -1,0 +1,11 @@
+.DS_Store
+
+# CMS runtime data
+data/*
+!data/.htaccess
+!data/index.html
+
+# User-uploaded media
+uploads/*
+!uploads/.htaccess
+!uploads/.gitkeep

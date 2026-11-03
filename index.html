@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Copperline Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Photography, film and design studio in Lusaka, Zambia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..800;1,62..125,300..800&family=Geist:wght@300..700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- All text and images on this page come from content/content.js, which the admin panel edits. -->
+
+<a class="skip" href="#services">Skip to services</a>
+
+<header class="site-header" id="site-header">
+  <div class="header-row nav-pill">
+    <a class="wordmark" href="#top" data-c="site.name">Copperline</a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#design" data-show="design">Design</a>
+      <a href="#digital" data-show="digital">Digital</a>
+      <a href="#process">Process</a>
+      <a href="#contact" class="nav-cta" data-c="hero.primaryButton">Book a date</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-frame">
+      <div class="hero-media" id="hero-media"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-chip"><span class="dot" aria-hidden="true"></span><span data-c="hero.kicker"></span></p>
+        <h1 class="hero-title" id="hero-title">
+          <span class="visually-hidden" id="hero-title-text"></span>
+          <span aria-hidden="true">
+            <span class="ln"><span data-c="hero.line1"></span></span>
+            <span class="ln"><span data-c="hero.line2"></span></span>
+            <span class="ln ln-word"><span class="hero-word" id="hero-word"></span></span>
+          </span>
+        </h1>
+        <div class="hero-foot">
+          <div class="hero-actions">
+            <a class="btn btn-light" href="#contact" data-c="hero.primaryButton"></a>
+            <a class="btn btn-ghost" href="#work" data-c="hero.secondaryButton"></a>
+          </div>
+          <div class="hero-caption">
+            <p class="hero-caption-text" id="hero-caption" aria-live="polite"></p>
+            <div class="hero-pager" id="hero-pager" role="group" aria-label="Choose a slide"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="band" aria-hidden="true"><div class="band-track" id="band-track"></div></div>
+
+  <section class="statement" aria-labelledby="statement-title">
+    <div class="wrap statement-grid">
+      <p class="label" id="statement-title" data-c="statement.label"></p>
+      <div class="statement-body">
+        <p class="statement-text" id="statement-text"></p>
+        <dl class="facts" id="facts"></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 id="services-title" data-c="services.title"></h2>
+        <p class="section-aside" data-c="services.intro"></p>
+      </header>
+      <div class="bento" id="svc-bento"></div>
+    </div>
+  </section>
+
+  <section class="hs" id="work" aria-labelledby="work-title">
+    <div class="hs-sticky">
+      <div class="hs-head wrap">
+        <h2 id="work-title" data-c="work.featuredTitle"></h2>
+        <div class="hs-progress" aria-hidden="true">
+          <span class="hs-count" id="hs-count">01 / 01</span>
+          <span class="hs-bar"><i id="hs-bar"></i></span>
+        </div>
+      </div>
+      <div class="hs-viewport" id="hs-viewport">
+        <div class="hs-track" id="hs-track"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="index-section" aria-labelledby="all-title">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 id="all-title" data-c="work.allTitle"></h2>
+        <div class="tabs" id="tabs" role="group" aria-label="Show work from"></div>
+      </header>
+      <div class="justified" id="justified"></div>
+    </div>
+  </section>
+
+  <section class="process" id="editing" aria-labelledby="grade-title" data-show="editing">
+    <div class="wrap process-grid">
+      <div class="process-text">
+        <p class="label" data-c="editing.label"></p>
+        <h2 id="grade-title" data-c="editing.title"></h2>
+        <p data-c="editing.text"></p>
+        <dl class="adjust" id="adjust"></dl>
+      </div>
+      <figure class="compare" id="compare" style="--pos: 50%">
+        <img id="compare-final" alt="Finished frame">
+        <div class="compare-raw"><img id="compare-raw" alt="Unedited frame"></div>
+        <span class="compare-tag tag-raw" data-c="editing.beforeLabel"></span>
+        <span class="compare-tag tag-final" data-c="editing.afterLabel"></span>
+        <span class="compare-line" aria-hidden="true"><span class="compare-knob"></span></span>
+        <label class="visually-hidden" for="compare-range">Divider position between the unedited and finished frame</label>
+        <input class="compare-range" id="compare-range" type="range" min="0" max="100" value="50">
+      </figure>
+    </div>
+  </section>
+
+  <section class="design" id="design" aria-labelledby="design-title" data-show="design">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 id="design-title" data-c="design.title"></h2>
+        <p class="section-aside" data-c="design.intro"></p>
+      </header>
+      <div class="design-grid" id="design-grid"></div>
+    </div>
+  </section>
+
+  <section class="digital" id="digital" aria-labelledby="digital-title" data-show="digital">
+    <div class="wrap digital-grid">
+      <div class="digital-text">
+        <p class="label" data-c="digital.label"></p>
+        <h2 id="digital-title" data-c="digital.title"></h2>
+        <p data-c="digital.text"></p>
+        <ul class="ticks" id="ticks"></ul>
+      </div>
+      <div class="phone" role="img" aria-label="Example content calendar for one week">
+        <div class="phone-screen">
+          <p class="phone-top"><span data-c="digital.calendarTitle"></span><span id="cal-count"></span></p>
+          <ul class="cal" id="cal"></ul>
+          <p class="phone-foot" data-c="digital.calendarNote"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps-section" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 id="process-title" data-c="process.title"></h2>
+        <p class="section-aside" data-c="process.intro"></p>
+      </header>
+      <ol class="steps" id="steps"></ol>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div class="faq-head">
+        <p class="label" data-c="faq.label"></p>
+        <h2 id="faq-title" data-c="faq.title"></h2>
+      </div>
+      <div class="faq-list" id="faq-list"></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div class="contact-intro">
+        <p class="label" data-c="contact.label"></p>
+        <h2 id="contact-title" data-c="contact.title"></h2>
+        <p data-c="contact.text"></p>
+        <div class="contact-line">
+          <span class="contact-email" id="contact-email" data-c="site.email"></span>
+          <button class="text-btn" id="copy-email" type="button">Copy</button>
+        </div>
+        <ul class="contact-list" id="contact-list"></ul>
+      </div>
+
+      <form class="form" id="form" novalidate>
+        <div class="hp" aria-hidden="true"><label for="f-company">Company</label><input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="row-2">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+            <p class="err" id="f-name-err"></p>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone or WhatsApp</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+260">
+            <p class="err" id="f-phone-err"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+          <p class="err" id="f-email-err"></p>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="f-type">Service</label>
+            <select id="f-type" name="service"></select>
+          </div>
+          <div class="field">
+            <label for="f-budget">Budget</label>
+            <select id="f-budget" name="budget"></select>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="f-place">Location</label>
+            <select id="f-place" name="location"></select>
+          </div>
+          <div class="field">
+            <label for="f-date">Date</label>
+            <input id="f-date" name="date" type="date">
+            <p class="err" id="f-date-err"></p>
+          </div>
+        </div>
+        <div class="light-note" id="light-note" aria-live="polite">
+          <p class="light-head" id="light-head"></p>
+          <dl class="light-times">
+            <div><dt>Morning light</dt><dd id="light-am">–</dd></div>
+            <div><dt>Evening light</dt><dd id="light-pm">–</dd></div>
+            <div><dt>Sunrise · sunset</dt><dd id="light-sun">–</dd></div>
+          </dl>
+          <svg class="light-arc" id="light-arc" viewBox="0 0 600 120" role="img" aria-label="Height of the sun through the day"></svg>
+        </div>
+        <div class="field">
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="message" rows="4" placeholder="Number of guests, the venue, the song, or the product you are launching"></textarea>
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-dark" type="submit" id="f-submit">Send enquiry</button>
+          <p class="form-status" id="form-status" role="status" tabindex="-1"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cta">
+      <p class="footer-lede" data-c="footer.ctaTitle"></p>
+      <a class="btn btn-dark" href="#contact" data-c="footer.ctaButton"></a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="label">Studio</p>
+        <p data-c="site.location"></p>
+        <p class="footer-muted" data-c="site.hours"></p>
+      </div>
+      <div class="footer-col">
+        <p class="label">Contact</p>
+        <p data-c="site.email"></p>
+        <p class="footer-muted" id="footer-phone"></p>
+        <div class="socials" id="socials"></div>
+      </div>
+      <div class="footer-col footer-svc">
+        <p class="label">Services</p>
+        <p class="footer-muted" id="footer-svc"></p>
+      </div>
+      <nav class="footer-col footer-nav" aria-label="Footer">
+        <p class="label">Site</p>
+        <a href="#services">Services</a><a href="#work">Work</a><a href="#design" data-show="design">Design</a><a href="#digital" data-show="digital">Digital</a><a href="#process">Process</a><a href="#contact">Book a date</a>
+      </nav>
+    </div>
+    <div class="footer-base">
+      <p>© <span id="year">2026</span> <span data-c="site.name"></span>. <span data-c="footer.copyright"></span></p>
+      <p class="footer-links"><a href="#top">Back to top ↑</a><a href="#admin" class="admin-link">Admin</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title" hidden>
+  <div class="viewer-top">
+    <p class="viewer-count" id="v-count"></p>
+    <button class="viewer-btn" id="v-info" type="button" aria-pressed="false">Details</button>
+    <button class="viewer-btn" id="v-close" type="button" aria-label="Close viewer">Close</button>
+  </div>
+  <div class="viewer-stage" id="v-stage">
+    <img id="v-img" alt="">
+    <button class="viewer-arrow prev" id="v-prev" type="button" aria-label="Previous project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l-8 8 8 8"/></svg></button>
+    <button class="viewer-arrow next" id="v-next" type="button" aria-label="Next project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
+  </div>
+  <div class="viewer-bottom">
+    <div class="viewer-title">
+      <h2 id="v-title"></h2>
+      <p id="v-place"></p>
+    </div>
+    <a class="viewer-watch" id="v-watch" href="#" target="_blank" rel="noopener" hidden>Watch the film ↗</a>
+  </div>
+  <aside class="viewer-details" id="v-details" hidden>
+    <p class="viewer-series" id="v-series"></p>
+    <p class="viewer-note" id="v-note"></p>
+    <dl class="viewer-dl" id="v-dl"></dl>
+  </aside>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursor-text">View</span></div>
+
+<script src="content/content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
