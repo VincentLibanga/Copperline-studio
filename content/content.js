@@ -8,7 +8,7 @@ window.SITE_CONTENT = {
     "phone": "",
     "whatsapp": "",
     "location": "Lusaka, Zambia",
-    "hours": "Monday to Saturday, 08:00–18:00",
+    "hours": "Monday to Saturday, 08:00 to 18:00",
     "instagram": "",
     "facebook": "",
     "tiktok": "",
@@ -16,7 +16,7 @@ window.SITE_CONTENT = {
     "formEndpoint": ""
   },
   "hero": {
-    "kicker": "Photo · Film · Design — Lusaka, Zambia",
+    "kicker": "Photo · Film · Design · Lusaka, Zambia",
     "line1": "We photograph, film",
     "line2": "and design for",
     "primaryButton": "Book a date",
@@ -74,7 +74,7 @@ window.SITE_CONTENT = {
       },
       {
         "label": "Delivered as",
-        "value": "Online galleries, films in every format, print-ready files"
+        "value": "Online galleries, films in every format, files ready for print"
       }
     ]
   },
@@ -91,7 +91,7 @@ window.SITE_CONTENT = {
         "includes": [
           "Photography and film of the full ceremony",
           "Coverage of the food presentation and gifting",
-          "Edited gallery and a 3–5 minute highlight film"
+          "Edited gallery and a 3 to 5 minute highlight film"
         ]
       },
       {
@@ -114,7 +114,7 @@ window.SITE_CONTENT = {
         "line": "Launches, conferences, award nights and AGMs.",
         "includes": [
           "Speaker, stage and guest coverage",
-          "Same-day edited photos for your social media",
+          "Edited photos on your socials the same day",
           "Event recap video"
         ]
       },
@@ -127,7 +127,7 @@ window.SITE_CONTENT = {
         "includes": [
           "Treatment and storyboard",
           "Lighting, camera and drone",
-          "Edit, colour grade and vertical cut-downs"
+          "Edit, colour grade and vertical edits for social"
         ]
       },
       {
@@ -175,7 +175,7 @@ window.SITE_CONTENT = {
         "includes": [
           "Monthly photo and reel shoots",
           "Product and food photography",
-          "Short-form video for TikTok, Reels and Shorts"
+          "Short videos for TikTok, Reels and Shorts"
         ]
       },
       {
@@ -272,7 +272,7 @@ window.SITE_CONTENT = {
         "duration": "",
         "image": "images/event-hall.jpg",
         "place": "Lusaka",
-        "delivered": "Same-day selects, 380 photographs, recap video",
+        "delivered": "Same day selects, 380 photographs, recap video",
         "video": "",
         "text": "Four hundred guests, twelve awards, and edited photos on the client's social pages before dessert."
       },
@@ -284,7 +284,7 @@ window.SITE_CONTENT = {
         "duration": "3:48",
         "image": "images/concert-stage.jpg",
         "place": "Lusaka",
-        "delivered": "Music video, 3 vertical cut-downs",
+        "delivered": "Music video, 3 vertical edits",
         "video": "",
         "text": "A live performance video cut from four cameras and a drone, released the week after the show."
       },
@@ -298,7 +298,7 @@ window.SITE_CONTENT = {
         "place": "Studio, Lusaka",
         "delivered": "Music video, colour grade",
         "video": "",
-        "text": "Long-exposure light painting built into a one-location music video."
+        "text": "Long exposure light painting, built into a music video shot in a single room."
       },
       {
         "title": "Skincare launch advert",
@@ -310,7 +310,7 @@ window.SITE_CONTENT = {
         "place": "Studio, Lusaka",
         "delivered": "30s, 15s and 6s spots, 24 product photos",
         "video": "",
-        "text": "Product photography and a 30-second commercial for a new skincare line."
+        "text": "Product photography and a 30 second commercial for a new skincare line."
       },
       {
         "title": "Lodge promo",
@@ -322,7 +322,7 @@ window.SITE_CONTENT = {
         "place": "Lower Zambezi",
         "delivered": "Promo film, website photos",
         "video": "",
-        "text": "A two-minute promo for a riverside lodge, filmed over three evenings."
+        "text": "A two minute promo for a riverside lodge, filmed over three evenings."
       },
       {
         "title": "Tourism campaign, drone",
@@ -353,8 +353,8 @@ window.SITE_CONTENT = {
         "value": "+28"
       },
       {
-        "label": "Highlights",
-        "value": "−55"
+        "label": "Highlight recovery",
+        "value": "+55"
       },
       {
         "label": "Shadows",
@@ -370,14 +370,14 @@ window.SITE_CONTENT = {
       },
       {
         "label": "Look",
-        "value": "Warm film, soft roll-off"
+        "value": "Warm film, soft highlights"
       }
     ]
   },
   "design": {
     "show": true,
     "title": "Graphic design",
-    "intro": "Posters, brand identities and social posts, designed in-house alongside the photos and films.",
+    "intro": "Posters, brand identities and social posts, designed in our own studio alongside the photos and films.",
     "items": [
       {
         "title": "Event poster",
@@ -443,7 +443,7 @@ window.SITE_CONTENT = {
       {
         "day": "Fri",
         "type": "Ad",
-        "text": "Weekend offer, Lusaka, 18–35"
+        "text": "Weekend offer, Lusaka, ages 18 to 35"
       },
       {
         "day": "Sat",
@@ -475,7 +475,7 @@ window.SITE_CONTENT = {
       },
       {
         "title": "Deliver",
-        "text": "Online gallery, films in every format you need, and print-ready design files."
+        "text": "Online gallery, films in every format you need, and design files ready for print."
       }
     ]
   },
@@ -512,8 +512,8 @@ window.SITE_CONTENT = {
     "budgets": [
       "Not sure yet",
       "Under K10,000",
-      "K10,000 – K25,000",
-      "K25,000 – K50,000",
+      "K10,000 to K25,000",
+      "K25,000 to K50,000",
       "Over K50,000"
     ],
     "showLight": true,

@@ -43,7 +43,10 @@
 
   /* ------------------------------------------------------------ Header */
   var header = $("#site-header"), menuBtn = $("#menu-btn"), nav = $("#nav"), hero = $(".hero");
-  function onScroll() { header.classList.toggle("is-solid", window.scrollY > hero.offsetHeight - header.offsetHeight); }
+  function onScroll() {
+    header.classList.toggle("is-solid", window.scrollY > hero.offsetHeight - header.offsetHeight);
+    if (!reduce) header.style.setProperty("--spin", (window.scrollY * 0.2 % 360).toFixed(1) + "deg");
+  }
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
   function setMenu(open) {
@@ -63,8 +66,18 @@
     ["services", "work", "design", "digital", "process", "contact"].forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
   }
 
+  /* ------------------------------------------------------------ Reveal on scroll */
+  if ("IntersectionObserver" in window && !reduce) {
+    document.documentElement.classList.add("reveal-on");
+    var rv = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); rv.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -10% 0px" });
+    $$("[data-reveal]").forEach(function (el) { rv.observe(el); });
+  }
+
   /* ------------------------------------------------------------ Hero */
   var media = $("#hero-media"), pager = $("#hero-pager"), caption = $("#hero-caption"), word = $("#hero-word");
+  var focus = $("#vf-focus"), tc = $("#vf-tc"), clock = $("#vf-clock"), lastFrame = -1;
   var slides = [], heroImgs = [], bars = [], heroI = -1, elapsed = 0, last = 0, DUR = 6000, heroHover = false, heroKey = "";
   function renderHero() {
     var s = arr(C.hero.slides).filter(function (x) { return x.image; });
@@ -97,6 +110,9 @@
         else { img.style.zIndex = 1; img.classList.remove("on"); img.alt = ""; }
       });
       word.classList.remove("in"); void word.offsetWidth; word.classList.add("in");
+      focus.style.left = (f.focusX == null ? 50 : f.focusX) + "%";
+      focus.style.top = (f.focusY == null ? 50 : f.focusY) + "%";
+      focus.classList.remove("lock"); void focus.offsetWidth; focus.classList.add("lock");
       bars.forEach(function (b) { b.style.width = "0"; });
       elapsed = 0;
     }
@@ -107,7 +123,20 @@
   }
   hero.addEventListener("mouseenter", function () { heroHover = true; });
   hero.addEventListener("mouseleave", function () { heroHover = false; });
+  /* Viewfinder: a running 25 fps timecode and the studio's local time (Zambia, UTC+2) */
+  function stamp(t) {
+    if (window.scrollY > hero.offsetHeight) return;
+    var fr = reduce ? 0 : Math.floor(t / 40);
+    if (fr === lastFrame) return;
+    lastFrame = fr;
+    var s = Math.floor(fr / 25);
+    tc.textContent = pad(Math.floor(s / 3600)) + ":" + pad(Math.floor(s / 60) % 60) + ":" + pad(s % 60) + ":" + pad(fr % 25);
+    var now = new Date(Date.now() + OFF), town = String(C.site.location || "").split(",")[0].trim();
+    var c = (town ? town + " " : "") + pad(now.getUTCHours()) + ":" + pad(now.getUTCMinutes());
+    if (clock.textContent !== c) clock.textContent = c;
+  }
   function heroTick(t) {
+    stamp(t);
     var dt = last ? Math.min(t - last, 100) : 0; last = t;
     if (!reduce && slides.length > 1 && viewer.hidden && !heroHover && document.visibilityState === "visible" && !document.documentElement.classList.contains("cms-open")) {
       elapsed += dt;
@@ -118,9 +147,20 @@
   }
 
   /* ------------------------------------------------------------ Band + statement */
+  /* The band is a marquee: two identical runs of service names, scrolled by half its width */
   function renderBand() {
     var t = $("#band-track"); t.textContent = "";
-    arr(C.services.items).map(function (s) { return s.title; }).filter(Boolean).forEach(function (n) { t.appendChild(h("span", { class: "band-item" }, [n])); });
+    var names = arr(C.services.items).map(function (s) { return s.title; }).filter(Boolean);
+    t.style.setProperty("--n", Math.max(names.length, 3));
+    [0, 1].forEach(function (copy) {
+      var run = h("span", { class: "band-run" + (copy ? " band-dup" : "") });
+      names.forEach(function (n, i) { run.appendChild(h("span", { class: "band-item" + (i % 2 ? " o" : "") }, [n])); });
+      t.appendChild(run);
+    });
+  }
+  /* Statement words light up one by one as the paragraph scrolls through the screen */
+  function words(parent, s) {
+    s.split(/(\s+)/).forEach(function (w) { if (w) parent.appendChild(/\s/.test(w) ? document.createTextNode(w) : h("span", { class: "w", text: w })); });
   }
   function highlight(el, text, phrases) {
     el.textContent = "";
@@ -129,12 +169,25 @@
     while (rest) {
       var best = -1, hit = "";
       marks.forEach(function (m) { var i = rest.indexOf(m); if (i >= 0 && (best < 0 || i < best)) { best = i; hit = m; } });
-      if (best < 0) { el.appendChild(document.createTextNode(rest)); break; }
-      if (best) el.appendChild(document.createTextNode(rest.slice(0, best)));
-      el.appendChild(h("span", { class: "hl", text: hit }));
+      if (best < 0) { words(el, rest); break; }
+      if (best) words(el, rest.slice(0, best));
+      var hl = h("span", { class: "hl" }); words(hl, hit); el.appendChild(hl);
       rest = rest.slice(best + hit.length);
     }
+    litN = -1; litWords();
   }
+  var stText = $("#statement-text"), litN = -1;
+  function litWords() {
+    var ws = stText.querySelectorAll(".w"); if (!ws.length) return;
+    var r = stText.getBoundingClientRect(), vh = window.innerHeight;
+    var p = reduce ? 1 : Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (r.height + vh * 0.35)));
+    var n = Math.round(p * ws.length);
+    if (n === litN) return;
+    litN = n;
+    for (var i = 0; i < ws.length; i++) ws[i].classList.toggle("lit", i < n);
+  }
+  window.addEventListener("scroll", litWords, { passive: true });
+  window.addEventListener("resize", litWords);
   function renderStatement() {
     highlight($("#statement-text"), C.statement.text, C.statement.highlights);
     var f = $("#facts"); f.textContent = "";
@@ -146,14 +199,14 @@
   function renderServices() {
     var bento = $("#svc-bento"); bento.textContent = "";
     var flatN = 0;
-    arr(C.services.items).forEach(function (s) {
+    arr(C.services.items).forEach(function (s, i) {
       var enquire = h("a", { class: "pill-link", href: "#contact", text: "Enquire" });
       enquire.addEventListener("click", function () { $("#f-type").value = s.title; renderLight(); });
       var media = s.image
         ? h("div", { class: "svc-media" }, [h("img", { src: s.image, alt: "", loading: "lazy", decoding: "async" })])
         : h("div", { class: "svc-art", "aria-hidden": "true" });
       var cls = "svc-card " + (sizeClass[s.size] || "s4") + (s.image ? "" : " no-img flat" + (flatN++ % 2 ? " alt" : ""));
-      bento.appendChild(h("article", { class: cls }, [media, h("div", { class: "svc-body" }, [
+      bento.appendChild(h("article", { class: cls }, [media, h("span", { class: "svc-n", "aria-hidden": "true", text: pad(i + 1) }), h("div", { class: "svc-body" }, [
         s.group ? h("span", { class: "chip", text: s.group }) : null,
         h("h3", { text: s.title }),
         h("p", { class: "svc-line", text: s.line }),
@@ -162,6 +215,22 @@
       ])]));
     });
     $("#footer-svc").textContent = arr(C.services.items).map(function (s) { return s.title; }).join(" · ");
+  }
+  /* Cards lean toward the pointer, with a copper glow under it */
+  if (finePointer && !reduce) {
+    var bentoEl = $("#svc-bento");
+    bentoEl.addEventListener("pointermove", function (e) {
+      var card = e.target.closest(".svc-card"); if (!card) return;
+      var r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      card.style.setProperty("--rx", ((0.5 - y) * 5).toFixed(2) + "deg");
+      card.style.setProperty("--ry", ((x - 0.5) * 5).toFixed(2) + "deg");
+      card.style.setProperty("--mx", (x * 100).toFixed(1) + "%");
+      card.style.setProperty("--my", (y * 100).toFixed(1) + "%");
+    });
+    bentoEl.addEventListener("pointerout", function (e) {
+      var card = e.target.closest(".svc-card");
+      if (card && !card.contains(e.relatedTarget)) { card.style.removeProperty("--rx"); card.style.removeProperty("--ry"); }
+    });
   }
 
   /* ------------------------------------------------------------ Work: featured gallery */
@@ -184,7 +253,8 @@
         h("span", { class: "hs-overlay" }, [h("b", { text: p.title }), h("span", { text: p.place })])
       ]);
       fig.addEventListener("click", function () { openViewer(featured, i); });
-      var panel = h("article", { class: "hs-panel", "aria-label": p.title }, [fig, h("div", { class: "hs-text" }, [
+      var edge = h("p", { class: "hs-edge", "aria-hidden": "true" }, [h("span", { text: (C.site.name || "") + " 400" }), h("span", { text: "▸ " + pad(i + 1) + "A" })]);
+      var panel = h("article", { class: "hs-panel", "aria-label": p.title }, [edge, fig, h("div", { class: "hs-text" }, [
         p.text ? h("p", { text: p.text }) : null,
         p.delivered ? h("p", { class: "hs-deliver", text: p.delivered }) : null
       ])]);
@@ -357,7 +427,12 @@
     $("#compare-final").src = e.after || ""; $("#compare-raw").src = e.before || "";
     $("#compare").hidden = !(e.after && e.before);
     var a = $("#adjust"); a.textContent = "";
-    arr(e.chips).forEach(function (c) { a.appendChild(h("div", null, [h("dt", { text: c.label }), h("dd", { text: c.value })])); });
+    /* Plain numbers such as +28 also get a meter, like a slider on a grading panel */
+    arr(e.chips).forEach(function (c) {
+      var m = /^([+−-]?)(\d+(?:\.\d+)?)$/.exec(String(c.value || "").trim());
+      var meter = m ? h("span", { class: "meter" + (m[1] && m[1] !== "+" ? " neg" : ""), "aria-hidden": "true", style: "--v:" + Math.min(1, m[2] / 100) }) : null;
+      a.appendChild(h("div", null, [h("dt", { text: c.label }), h("dd", null, [meter, h("span", { text: c.value })])]));
+    });
   }
   function renderDesign() {
     var g = $("#design-grid"); g.textContent = "";
@@ -450,6 +525,7 @@
   }
   var fPlace = $("#f-place"), fDate = $("#f-date"), fType = $("#f-type");
   fDate.min = today();
+  $("#form-today").textContent = new Date(today() + "T12:00:00Z").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
   var NS = "http://www.w3.org/2000/svg";
   function sv(tag, attrs, txt) { var n = document.createElementNS(NS, tag); Object.keys(attrs).forEach(function (k) { n.setAttribute(k, attrs[k]); }); if (txt != null) n.textContent = txt; return n; }
   var noShoot = ["graphic design", "digital marketing", "video editing", "something else"];
@@ -462,11 +538,11 @@
     var when = ds === today() ? "Today" : new Date(ds + "T12:00:00Z").toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
     var head = $("#light-head"); head.textContent = "";
     head.append("Shooting outdoors? " + when + " in " + pl.name + ", the softest light starts at ");
-    head.appendChild(h("strong", { text: d.am ? hm(d.am[0]) : "–" })); head.append(" and ");
-    head.appendChild(h("strong", { text: d.pm ? hm(d.pm[0]) : "–" })); head.append(".");
-    $("#light-am").textContent = d.am ? hm(d.am[0]) + "–" + hm(d.am[1]) : "–";
-    $("#light-pm").textContent = d.pm ? hm(d.pm[0]) + "–" + hm(d.pm[1]) : "–";
-    $("#light-sun").textContent = (d.rise ? hm(d.rise) : "–") + " · " + (d.set ? hm(d.set) : "–");
+    head.appendChild(h("strong", { text: d.am ? hm(d.am[0]) : "dawn" })); head.append(" and ");
+    head.appendChild(h("strong", { text: d.pm ? hm(d.pm[0]) : "dusk" })); head.append(".");
+    $("#light-am").textContent = d.am ? hm(d.am[0]) + " to " + hm(d.am[1]) : "Not today";
+    $("#light-pm").textContent = d.pm ? hm(d.pm[0]) + " to " + hm(d.pm[1]) : "Not today";
+    $("#light-sun").textContent = (d.rise ? hm(d.rise) : "none") + " · " + (d.set ? hm(d.set) : "none");
     var svg = $("#light-arc"); svg.textContent = "";
     var X0 = 240, X1 = 1200, W = 600, top = 6, bot = 96, EMIN = -12, EMAX = 90;
     var x = function (m) { return (m - X0) / (X1 - X0) * W; };
@@ -476,6 +552,8 @@
     var path = "";
     for (var m = X0; m <= X1; m += 4) path += (m === X0 ? "M" : "L") + x(m).toFixed(1) + " " + y(d.el[m]).toFixed(1);
     svg.appendChild(sv("path", { class: "curve", d: path }));
+    /* A sun where each golden hour meets full daylight */
+    [d.am && d.am[1], d.pm && d.pm[0]].forEach(function (m) { if (m) svg.appendChild(sv("circle", { class: "sun", cx: x(m), cy: y(d.el[m]), r: 5 })); });
     [6, 12, 18].forEach(function (hr) { svg.appendChild(sv("text", { class: "tick", x: x(hr * 60), y: 114, "text-anchor": "middle" }, pad(hr) + ":00")); });
   }
   [fPlace, fDate, fType].forEach(function (el) { el.addEventListener("change", renderLight); });
@@ -540,17 +618,36 @@
     })();
   }
 
+  /* ------------------------------------------------------------ Headline accents + footer wordmark */
+  /* The last word of every headline is set in the narrow copper italic */
+  function accentLast(el) {
+    var t = el.textContent.replace(/\s+$/, ""), i = t.lastIndexOf(" ");
+    if (!t) return;
+    el.textContent = t.slice(0, i + 1);
+    el.appendChild(h("em", { class: "it", text: t.slice(i + 1) }));
+  }
+  var mark = $("#footer-mark");
+  function fitMark() {
+    var s = mark.firstElementChild; if (!s || !mark.clientWidth) return;
+    mark.style.fontSize = "100px";
+    var w = s.getBoundingClientRect().width;
+    if (w) mark.style.fontSize = Math.min(420, 98 * mark.clientWidth / w).toFixed(1) + "px";
+  }
+  window.addEventListener("resize", fitMark);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { fitMark(); litN = -1; litWords(); });
+
   /* ------------------------------------------------------------ Render everything */
   function render(content) {
     if (content) C = content;
     $$("[data-c]").forEach(function (el) { var v = get(C, el.dataset.c); el.textContent = v == null ? "" : v; });
     $$("[data-show]").forEach(function (el) { var sec = C[el.dataset.show]; el.hidden = !!sec && sec.show === false; });
-    document.title = [C.site.name, C.site.tagline].filter(Boolean).join(" — ");
+    $$("main h2[data-c], .footer-lede").forEach(accentLast);
+    document.title = [C.site.name, C.site.tagline].filter(Boolean).join(" · ");
     var md = $('meta[name="description"]'); if (md) md.setAttribute("content", C.site.description || "");
     renderHero(); renderBand(); renderStatement(); renderServices(); renderFeatured(); renderAllWork();
     renderEditing(); renderDesign(); renderDigital(); renderProcess(); renderFaq(); renderContact();
     $("#year").textContent = new Date().getFullYear();
-    hsSetup(); layout(); onScroll();
+    hsSetup(); layout(); onScroll(); fitMark();
   }
   window.Site = { render: render, get content() { return C; } };
 

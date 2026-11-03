@@ -3,7 +3,7 @@
   --c-bg: #111113; --c-card: #18181B; --c-card-2: #202024; --c-line: rgba(255, 255, 255, 0.09); --c-line-2: rgba(255, 255, 255, 0.18);
   --c-ink: #F4F3EF; --c-ink-2: #C4C3BD; --c-muted: #8B8A84; --c-accent: #FF7A3D; --c-on-accent: #1A0D05; --c-bad: #FF8A73; --c-good: #3BD671;
   --c-grad: linear-gradient(120deg, #FF5E26 0%, #FF8A3D 45%, #FFC27A 100%);
-  font-family: "Geist", "Helvetica Neue", Arial, system-ui, sans-serif; color: var(--c-ink); font-size: 14px; line-height: 1.45;
+  font-family: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif; color: var(--c-ink); font-size: 14px; line-height: 1.45;
 }
 .cms *, .cms *::before, .cms *::after { box-sizing: border-box; }
 .cms {
@@ -114,7 +114,8 @@
 .cms-item-toggle:hover { background: rgba(255, 255, 255, 0.04); }
 .cms-item-toggle img, .cms-thumb-empty { flex: none; width: 40px; height: 30px; border-radius: 6px; object-fit: cover; background: var(--c-card-2); }
 .cms-item-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
-.cms-chev { color: var(--c-muted); font-size: 16px; width: 16px; text-align: center; }
+.cms-chev { color: var(--c-muted); font-size: 16px; width: 16px; text-align: center; transition: transform 0.2s; }
+[aria-expanded="true"] > .cms-chev { transform: rotate(45deg); }
 .cms-item > .cms-fields { padding: 8px 12px 14px; border-top: 1px solid var(--c-line); }
 .cms-add { justify-self: start; border-style: dashed; }
 

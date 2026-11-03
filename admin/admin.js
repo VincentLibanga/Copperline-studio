@@ -83,11 +83,11 @@
           { k: "group", label: "Group", type: "combo", options: groupsOf, help: "Pick a group or type a new one." },
           { k: "size", label: "Card size", type: "select", options: [["wide", "Wide"], ["medium", "Medium"], ["half", "Half width"], ["third", "One third"]] },
           { k: "image", label: "Photo (optional)", type: "image" },
-          { k: "line", label: "One-line description", type: "textarea", rows: 2 },
+          { k: "line", label: "Short description", type: "textarea", rows: 2 },
           { k: "includes", label: "What is included", type: "tags", add: "Add item" }
         ] }
     ] },
-    { id: "work", title: "Work", target: "#work", path: "work", intro: "Your portfolio. Tick “Show in selected work” for the projects in the side-scrolling gallery.", fields: [
+    { id: "work", title: "Work", target: "#work", path: "work", intro: "Your portfolio. Tick “Show in selected work” for the projects in the film strip gallery.", fields: [
       { k: "featuredTitle", label: "Gallery title" },
       { k: "featuredIntro", label: "Gallery intro", type: "textarea", rows: 2 },
       { k: "allTitle", label: "Grid title" },
@@ -151,7 +151,7 @@
       { k: "budgets", label: "Budget options", type: "tags", add: "Add option", help: "Remove all options to hide the budget field." },
       { k: "showLight", label: "Show best light for the date", type: "toggle" },
       { k: "places", label: "Towns for the light planner", type: "list", add: "Add town", itemLabel: function (it) { return it.name || "New town"; }, blank: { name: "", lat: -15.4, lon: 28.3 }, fields: [
-        { k: "name", label: "Town" }, { k: "lat", label: "Latitude", type: "number", help: "South is negative, for example -15.39." }, { k: "lon", label: "Longitude", type: "number" }
+        { k: "name", label: "Town" }, { k: "lat", label: "Latitude", type: "number", help: "Towns south of the equator use a minus sign. Lusaka is minus 15.39." }, { k: "lon", label: "Longitude", type: "number" }
       ] }
     ] },
     { id: "footer", title: "Footer", target: ".site-footer", path: "footer", fields: [
@@ -240,7 +240,7 @@
   /* ------------------------------------------------------------ Auth screens */
   function authScreen(kind) {
     navEl.hidden = true; body.textContent = ""; saveBtn.hidden = true;
-    statusEl.textContent = kind === "setup" ? "First-time setup" : "Signed out";
+    statusEl.textContent = kind === "setup" ? "First setup" : "Signed out";
     statusEl.className = "cms-status is-off";
     var pw = h("input", { type: "password", id: "cms-pw", autocomplete: kind === "setup" ? "new-password" : "current-password", required: true, minlength: kind === "setup" ? 10 : null });
     var pw2 = kind === "setup" ? h("input", { type: "password", id: "cms-pw2", autocomplete: "new-password", required: true }) : null;
@@ -418,7 +418,7 @@
           h("button", { type: "button", class: "cms-item-toggle", "aria-expanded": String(isOpen), onclick: function () { open[i] = !open[i]; draw(); } }, [
             thumbSrc ? h("img", { src: thumbSrc, alt: "" }) : (f.thumb ? h("span", { class: "cms-thumb-empty" }) : null),
             h("span", { class: "cms-item-name", text: f.itemLabel(it) }),
-            h("span", { class: "cms-chev", "aria-hidden": "true", text: isOpen ? "–" : "+" })
+            h("span", { class: "cms-chev", "aria-hidden": "true", text: "+" })
           ]),
           h("button", { type: "button", class: "cms-mini", "aria-label": "Move up", disabled: i === 0 || null, onclick: function () { move(i, -1); }, text: "↑" }),
           h("button", { type: "button", class: "cms-mini", "aria-label": "Move down", disabled: i === list.length - 1 || null, onclick: function () { move(i, 1); }, text: "↓" }),

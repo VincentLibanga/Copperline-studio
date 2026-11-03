@@ -8,7 +8,7 @@
 <meta name="description" content="Photography, film and design studio in Lusaka, Zambia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..800;1,62..125,300..800&family=Geist:wght@300..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..800;1,62..125,300..800&display=swap">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -37,6 +37,11 @@
     <div class="hero-frame">
       <div class="hero-media" id="hero-media"></div>
       <div class="hero-shade" aria-hidden="true"></div>
+      <div class="vf" aria-hidden="true">
+        <span class="vf-c tl"></span><span class="vf-c tr"></span><span class="vf-c bl"></span><span class="vf-c br"></span>
+        <p class="vf-top"><span class="vf-rec"><i></i>Rec</span><span class="vf-tc" id="vf-tc">00:00:00:00</span><span class="vf-clock" id="vf-clock"></span></p>
+        <span class="vf-focus" id="vf-focus"></span>
+      </div>
       <div class="hero-content">
         <p class="hero-chip"><span class="dot" aria-hidden="true"></span><span data-c="hero.kicker"></span></p>
         <h1 class="hero-title" id="hero-title">
@@ -65,27 +70,27 @@
 
   <section class="statement" aria-labelledby="statement-title">
     <div class="wrap statement-grid">
-      <p class="label" id="statement-title" data-c="statement.label"></p>
+      <p class="label" id="statement-title" data-c="statement.label" data-reveal></p>
       <div class="statement-body">
         <p class="statement-text" id="statement-text"></p>
-        <dl class="facts" id="facts"></dl>
+        <dl class="facts" id="facts" data-reveal="kids"></dl>
       </div>
     </div>
   </section>
 
   <section class="services" id="services" aria-labelledby="services-title">
     <div class="wrap">
-      <header class="section-head">
+      <header class="section-head" data-reveal>
         <h2 id="services-title" data-c="services.title"></h2>
         <p class="section-aside" data-c="services.intro"></p>
       </header>
-      <div class="bento" id="svc-bento"></div>
+      <div class="bento" id="svc-bento" data-reveal="kids"></div>
     </div>
   </section>
 
   <section class="hs" id="work" aria-labelledby="work-title">
     <div class="hs-sticky">
-      <div class="hs-head wrap">
+      <div class="hs-head wrap" data-reveal>
         <h2 id="work-title" data-c="work.featuredTitle"></h2>
         <div class="hs-progress" aria-hidden="true">
           <span class="hs-count" id="hs-count">01 / 01</span>
@@ -100,7 +105,7 @@
 
   <section class="index-section" aria-labelledby="all-title">
     <div class="wrap">
-      <header class="section-head">
+      <header class="section-head" data-reveal>
         <h2 id="all-title" data-c="work.allTitle"></h2>
         <div class="tabs" id="tabs" role="group" aria-label="Show work from"></div>
       </header>
@@ -110,13 +115,13 @@
 
   <section class="process" id="editing" aria-labelledby="grade-title" data-show="editing">
     <div class="wrap process-grid">
-      <div class="process-text">
+      <div class="process-text" data-reveal>
         <p class="label" data-c="editing.label"></p>
         <h2 id="grade-title" data-c="editing.title"></h2>
         <p data-c="editing.text"></p>
         <dl class="adjust" id="adjust"></dl>
       </div>
-      <figure class="compare" id="compare" style="--pos: 50%">
+      <figure class="compare" id="compare" style="--pos: 50%" data-reveal>
         <img id="compare-final" alt="Finished frame">
         <div class="compare-raw"><img id="compare-raw" alt="Unedited frame"></div>
         <span class="compare-tag tag-raw" data-c="editing.beforeLabel"></span>
@@ -130,27 +135,29 @@
 
   <section class="design" id="design" aria-labelledby="design-title" data-show="design">
     <div class="wrap">
-      <header class="section-head">
+      <header class="section-head" data-reveal>
         <h2 id="design-title" data-c="design.title"></h2>
         <p class="section-aside" data-c="design.intro"></p>
       </header>
-      <div class="design-grid" id="design-grid"></div>
+      <div class="design-grid" id="design-grid" data-reveal="kids"></div>
     </div>
   </section>
 
   <section class="digital" id="digital" aria-labelledby="digital-title" data-show="digital">
     <div class="wrap digital-grid">
-      <div class="digital-text">
+      <div class="digital-text" data-reveal>
         <p class="label" data-c="digital.label"></p>
         <h2 id="digital-title" data-c="digital.title"></h2>
         <p data-c="digital.text"></p>
         <ul class="ticks" id="ticks"></ul>
       </div>
-      <div class="phone" role="img" aria-label="Example content calendar for one week">
-        <div class="phone-screen">
-          <p class="phone-top"><span data-c="digital.calendarTitle"></span><span id="cal-count"></span></p>
-          <ul class="cal" id="cal"></ul>
-          <p class="phone-foot" data-c="digital.calendarNote"></p>
+      <div class="phone-stage" data-reveal>
+        <div class="phone" role="img" aria-label="Example content calendar for one week">
+          <div class="phone-screen">
+            <p class="phone-top"><span data-c="digital.calendarTitle"></span><span id="cal-count"></span></p>
+            <ul class="cal" id="cal"></ul>
+            <p class="phone-foot" data-c="digital.calendarNote"></p>
+          </div>
         </div>
       </div>
     </div>
@@ -158,27 +165,27 @@
 
   <section class="steps-section" id="process" aria-labelledby="process-title">
     <div class="wrap">
-      <header class="section-head">
+      <header class="section-head" data-reveal>
         <h2 id="process-title" data-c="process.title"></h2>
         <p class="section-aside" data-c="process.intro"></p>
       </header>
-      <ol class="steps" id="steps"></ol>
+      <ol class="steps" id="steps" data-reveal="kids"></ol>
     </div>
   </section>
 
   <section class="faq" aria-labelledby="faq-title">
     <div class="wrap faq-grid">
-      <div class="faq-head">
+      <div class="faq-head" data-reveal>
         <p class="label" data-c="faq.label"></p>
         <h2 id="faq-title" data-c="faq.title"></h2>
       </div>
-      <div class="faq-list" id="faq-list"></div>
+      <div class="faq-list" id="faq-list" data-reveal="kids"></div>
     </div>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap contact-grid">
-      <div class="contact-intro">
+      <div class="contact-intro" data-reveal>
         <p class="label" data-c="contact.label"></p>
         <h2 id="contact-title" data-c="contact.title"></h2>
         <p data-c="contact.text"></p>
@@ -189,7 +196,8 @@
         <ul class="contact-list" id="contact-list"></ul>
       </div>
 
-      <form class="form" id="form" novalidate>
+      <form class="form" id="form" novalidate data-reveal>
+        <p class="form-top" aria-hidden="true"><span>Call sheet</span><span id="form-today"></span></p>
         <div class="hp" aria-hidden="true"><label for="f-company">Company</label><input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
         <div class="row-2">
           <div class="field">
@@ -232,9 +240,9 @@
         <div class="light-note" id="light-note" aria-live="polite">
           <p class="light-head" id="light-head"></p>
           <dl class="light-times">
-            <div><dt>Morning light</dt><dd id="light-am">–</dd></div>
-            <div><dt>Evening light</dt><dd id="light-pm">–</dd></div>
-            <div><dt>Sunrise · sunset</dt><dd id="light-sun">–</dd></div>
+            <div><dt>Morning light</dt><dd id="light-am"></dd></div>
+            <div><dt>Evening light</dt><dd id="light-pm"></dd></div>
+            <div><dt>Sunrise · sunset</dt><dd id="light-sun"></dd></div>
           </dl>
           <svg class="light-arc" id="light-arc" viewBox="0 0 600 120" role="img" aria-label="Height of the sun through the day"></svg>
         </div>
@@ -254,7 +262,7 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="footer-cta">
+    <div class="footer-cta" data-reveal>
       <p class="footer-lede" data-c="footer.ctaTitle"></p>
       <a class="btn btn-dark" href="#contact" data-c="footer.ctaButton"></a>
     </div>
@@ -279,6 +287,7 @@
         <a href="#services">Services</a><a href="#work">Work</a><a href="#design" data-show="design">Design</a><a href="#digital" data-show="digital">Digital</a><a href="#process">Process</a><a href="#contact">Book a date</a>
       </nav>
     </div>
+    <p class="footer-mark" id="footer-mark" aria-hidden="true"><span data-c="site.name"></span></p>
     <div class="footer-base">
       <p>© <span id="year">2026</span> <span data-c="site.name"></span>. <span data-c="footer.copyright"></span></p>
       <p class="footer-links"><a href="#top">Back to top ↑</a><a href="#admin" class="admin-link">Admin</a></p>
@@ -311,6 +320,7 @@
   </aside>
 </div>
 
+<div class="grain" aria-hidden="true"></div>
 <div class="cursor" id="cursor" aria-hidden="true"><span id="cursor-text">View</span></div>
 
 <script src="content/content.js"></script>
